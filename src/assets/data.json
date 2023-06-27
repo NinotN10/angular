@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "userId": "1",
+      "username": "JohnDoe",
+      "email": "john.doe@example.com"
+    },
+    {
+      "userId": "2",
+      "username": "JaneSmith",
+      "email": "jane.smith@example.com"
+    }
+  ],
+  "todos": [
+    {
+      "todoId": "1",
+      "userId": "1",
+      "title": "Faire les courses",
+      "description": "Acheter du lait, du pain et des œufs.",
+      "category": "Courses",
+      "completed": false
+    },
+    {
+      "todoId": "2",
+      "userId": "1",
+      "title": "Faire du sport",
+      "description": "Aller à la salle de sport.",
+      "category": "Sport",
+      "completed": true
+    },
+    {
+      "todoId": "3",
+      "userId": "2",
+      "title": "Lire un livre",
+      "description": "Terminer la lecture du roman XYZ.",
+      "category": "Lecture",
+      "completed": false
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<div class="container">
+  <h2>Ajouter une tâche</h2>
+  <form (ngSubmit)="addTodo()" #todoForm="ngForm">
+    <label>
+      Titre :
+      <input [(ngModel)]="newTodoTitle" name="newTodoTitle" required>
+    </label>
+    <label>
+      Description :
+      <input [(ngModel)]="newTodoDescription" name="newTodoDescription" required>
+    </label>
+    <label>
+      Catégorie :
+      <select [(ngModel)]="newTodoCategory" name="newTodoCategory" required>
+        <option value="">Sélectionnez une catégorie</option>
+        <option value="Courses">Courses</option>
+        <option value="Sport">Sport</option>
+        <option value="Lecture">Lecture</option>
+      </select>
+    </label>
+    <button type="submit">Ajouter la tâche</button>
+  </form>
+
+  <div class="todo-lists">
+    <div>
+      <h2>Tâches non terminées</h2>
+      <div class="todo-card" *ngFor="let todo of uncompletedTodos">
+        <h3>{{ todo.title }}</h3>
+        <p>{{ todo.description }}</p>
+        <button (click)="markAsCompleted(todo.todoId)">Marquer comme terminée</button>
+      </div>
+    </div>
+
+    <div *ngIf="showCompleted">
+      <h2>Tâches terminées</h2>
+      <div class="todo-card" *ngFor="let todo of completedTodos">
+        <ng-container *ngIf="!selectedCategory || todo.category === selectedCategory">
+          <h3>{{ todo.title }}</h3>
+          <p>{{ todo.description }}</p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="showCompleted = !showCompleted">
+    {{ showCompleted ? 'Cacher' : 'Afficher' }} les tâches terminées
+  </button>
+
+  <select [(ngModel)]="selectedCategory">
+    <option value="">Toutes les catégories</option>
+    <option value="Courses">Courses</option>
+    <option value="Sport">Sport</option>
+    <option value="Lecture">Lecture</option>
+  </select>
+</div>

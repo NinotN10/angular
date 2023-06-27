@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="user-card" *ngFor="let user of users">
+    <h2><a [routerLink]="['/users', user.userId, 'todos']">{{ user.username }}</a></h2>
+    <p>{{ user.email }}</p>
+  </div>
+</div>
